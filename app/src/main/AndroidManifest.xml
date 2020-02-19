@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".music.view.activites.SongActivity"></activity>
+        <activity android:name=".music.view.activites.NewActivity"></activity>
+        <activity android:name=".music.view.activites.SongActivity" />
         <activity android:name=".music.view.activites.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
