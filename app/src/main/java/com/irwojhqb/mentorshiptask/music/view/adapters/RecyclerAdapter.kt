@@ -8,10 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.irwojhqb.mentorshiptask.R
-import com.irwojhqb.mentorshiptask.music.model.RequestsItem
+import com.irwojhqb.mentorshiptask.music.model.SongsItem
 import com.squareup.picasso.Picasso
 
-class RecyclerAdapter (private var musicList: List<RequestsItem>):
+class RecyclerAdapter (private var musicList: MutableList<SongsItem>):
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     var itemClick: (position: Int) -> Unit = { }
 
@@ -29,7 +29,8 @@ class RecyclerAdapter (private var musicList: List<RequestsItem>):
       //  notifyDataSetChanged()
     }
 
-    fun setItems(listMusic: List<RequestsItem>){
+    fun setItems(listMusic: MutableList<SongsItem>){
+        musicList.clear()
         musicList = listMusic
         notifyDataSetChanged()
 
@@ -42,19 +43,24 @@ class RecyclerAdapter (private var musicList: List<RequestsItem>):
         var artistImage :ImageView
         var artistName:TextView
         var songName:TextView
+        var backImage:ImageView
 
                 init{
+                    backImage = itemView.findViewById(R.id.back_image)
                     artistImage = itemView.findViewById(R.id.circleImageView)
                     artistName = itemView.findViewById(R.id.name_Artist)
                     songName = itemView.findViewById(R.id.name_Song)
                 }
 
-        fun bind(reqItem:RequestsItem){
+        fun bind(reqItem:SongsItem){
             Picasso.get()
-                .load(Uri.parse(reqItem.url))
+                .load(Uri.parse(reqItem.headerImageThumbnailUrl))
                 .into(artistImage)
-            artistName.text =reqItem.auth.toString()
-            songName.text = reqItem.name
+            Picasso.get()
+                .load(Uri.parse(reqItem.songArtImageThumbnailUrl))
+                .into(backImage)
+            artistName.text =reqItem.primaryArtist!!.name
+            songName.text = reqItem.fullTitle
         }
     }
 }
