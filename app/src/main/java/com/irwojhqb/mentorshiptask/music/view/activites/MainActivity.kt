@@ -13,7 +13,7 @@ import com.irwojhqb.mentorshiptask.music.view.adapters.RecyclerAdapter
 import com.irwojhqb.mentorshiptask.music.viewmodel.MyViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-//
+// todo name activities more descriptive
 class MainActivity : AppCompatActivity() {
     lateinit var  myViewModel:MyViewModel
     var musicArray:MutableList<SongsItem> = mutableListOf()
@@ -40,9 +40,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    // todo name methods with camel case
     fun reycylerINIT(){
         myrecycler.layoutManager = LinearLayoutManager(this)
+        // todo why are we passing musicArray with RecyclerAdapter ?
         myrecycler.adapter = RecyclerAdapter(musicArray).apply {
             itemClick = {
                 //                val intentItem = Intent(this@MainActivity,SongActivity::class.java)

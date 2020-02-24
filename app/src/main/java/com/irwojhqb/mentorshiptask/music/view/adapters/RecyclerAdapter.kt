@@ -12,6 +12,7 @@ import com.irwojhqb.mentorshiptask.R
 import com.irwojhqb.mentorshiptask.music.model.SongsItem
 import com.squareup.picasso.Picasso
 
+// todo move musicList to
 class RecyclerAdapter (private var musicList: MutableList<SongsItem>):
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
@@ -20,6 +21,7 @@ class RecyclerAdapter (private var musicList: MutableList<SongsItem>):
     //private var musicSearchList: MutableList<HitsItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder {
+        // todo name layout names more descriptive
       val inflate =LayoutInflater.from(parent.context).inflate(R.layout.recycler_item,parent,false)
         return ViewHolder(inflate)
     }

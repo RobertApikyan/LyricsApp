@@ -6,6 +6,7 @@ import com.irwojhqb.mentorshiptask.music.model.Response
 import retrofit2.Call
 
 object MyRepo {
+
     fun getMusic():Call<Response> = APIClient.get().create(MusicAPI::class.java).getData()
   // fun getSearchMusic( searchED:String):Call<SearchResponse> = APIClient.get().create(MusicAPI::class.java).getSearchData(searchED)
 

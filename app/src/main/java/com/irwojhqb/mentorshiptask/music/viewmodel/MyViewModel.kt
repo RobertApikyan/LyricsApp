@@ -14,8 +14,8 @@ import retrofit2.Callback
 class MyViewModel(application: Application) : AndroidViewModel(application) {
     var modelmutableLiveData: MutableLiveData<MutableList<SongsItem>>
 
-
     init {
+        // todo move to lazy or just to parameter level
         modelmutableLiveData = MutableLiveData()
     }
 
@@ -26,6 +26,7 @@ class MyViewModel(application: Application) : AndroidViewModel(application) {
                 }
                 override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>) {
                     if (response.isSuccessful) {
+                        // todo avoid force unwraps and force casts
                         modelmutableLiveData.value =
                             response.body()!!.response!!.songs as MutableList<SongsItem>?
                         Log.d(

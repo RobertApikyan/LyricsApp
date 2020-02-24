@@ -16,6 +16,7 @@ class APIClient {
         .addInterceptor(logging)
         .build()
 
+        // make retrofit instance singleton
         fun get():Retrofit{
             return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
