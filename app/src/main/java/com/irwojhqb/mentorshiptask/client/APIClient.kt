@@ -22,13 +22,5 @@ class APIClient {
                 .baseUrl(AppConstants.BASE_URL)
                  .client(okHttp).build()
         }
-
-        fun getSearchItem():Retrofit{
-            return Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(AppConstants.BASE_URL)
-                .client(okHttp).build()
-        }
-
 }
 }

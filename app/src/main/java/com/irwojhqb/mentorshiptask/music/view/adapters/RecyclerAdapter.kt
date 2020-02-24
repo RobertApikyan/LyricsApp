@@ -7,13 +7,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import com.irwojhqb.mentorshiptask.R
 import com.irwojhqb.mentorshiptask.music.model.SongsItem
 import com.squareup.picasso.Picasso
 
 class RecyclerAdapter (private var musicList: MutableList<SongsItem>):
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+
     var itemClick: (position: Int) -> Unit = { }
+   // private var musicList: MutableList<SongsItem> = mutableListOf()
+    //private var musicSearchList: MutableList<HitsItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder {
       val inflate =LayoutInflater.from(parent.context).inflate(R.layout.recycler_item,parent,false)
@@ -53,12 +57,14 @@ class RecyclerAdapter (private var musicList: MutableList<SongsItem>):
                 }
 
         fun bind(reqItem:SongsItem){
-            Picasso.get()
-                .load(Uri.parse(reqItem.headerImageThumbnailUrl))
-                .into(artistImage)
-            Picasso.get()
-                .load(Uri.parse(reqItem.songArtImageThumbnailUrl))
-                .into(backImage)
+//            Picasso.get()
+//                .load(Uri.parse(reqItem.headerImageThumbnailUrl))
+//                .into(artistImage)
+//            Picasso.get()
+//                .load(Uri.parse(reqItem.songArtImageThumbnailUrl))
+//                .into(backImage)
+            artistImage.load(Uri.parse(reqItem.headerImageThumbnailUrl))
+            backImage.load(Uri.parse(reqItem.songArtImageThumbnailUrl))
             artistName.text =reqItem.primaryArtist!!.name
             songName.text = reqItem.fullTitle
         }

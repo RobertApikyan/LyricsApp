@@ -12,8 +12,8 @@ interface MusicAPI {
     @Headers("x-rapidapi-key: 4c4145a3camsh405049315441042p16aaf1jsna22bea2b7b70")
       @GET(AppConstants.END_POINT)
     fun getData():Call<Response>
-    //@GET("search")
-    //fun getSearchData(@Query("q") name:String ):Call<SearchResponse>
+//    @GET("search")
+//    fun getSearchData(@Query("q") name:String ):Call<SearchResponse>
 
 
 }

@@ -6,8 +6,8 @@ import com.irwojhqb.mentorshiptask.music.model.Response
 import retrofit2.Call
 
 object MyRepo {
-  val apicClient = APIClient()
-    fun getMusic( /*searchED:String*/):Call<Response> = APIClient.get().create(MusicAPI::class.java).getData(/*searchED*/)
+    fun getMusic():Call<Response> = APIClient.get().create(MusicAPI::class.java).getData()
+  // fun getSearchMusic( searchED:String):Call<SearchResponse> = APIClient.get().create(MusicAPI::class.java).getSearchData(searchED)
 
 
 }
