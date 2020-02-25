@@ -2,7 +2,6 @@ package com.irwojhqb.mentorshiptask.music.view.activites
 
 import android.os.Bundle
 import android.util.Log
-import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -15,9 +14,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 // todo name activities more descriptive
 class MainActivity : AppCompatActivity() {
-    lateinit var  myViewModel:MyViewModel
-    var musicArray:MutableList<SongsItem> = mutableListOf()
-    lateinit var search_text:String
+    lateinit var myViewModel: MyViewModel
+    var musicArray: MutableList<SongsItem> = mutableListOf()
+    lateinit var search_text: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,9 +24,10 @@ class MainActivity : AppCompatActivity() {
         reycylerINIT()
 
         myViewModel = ViewModelProviders.of(this).get(MyViewModel::class.java)
-        myViewModel.modelmutableLiveData.observe(this, Observer{
-            Log.d("MYVIEVModel---",it[0].primaryArtist!!.name!!)
-            ( myrecycler.adapter as RecyclerAdapter).setItems(it) })
+        myViewModel.modelmutableLiveData.observe(this, Observer {
+            Log.d("MYVIEVModel---", it[0].primaryArtist!!.name!!)
+            (myrecycler.adapter as RecyclerAdapter).setItems(it)
+        })
 
         myViewModel.getMusicData()
 
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // todo name methods with camel case
-    fun reycylerINIT(){
+    fun reycylerINIT() {
         myrecycler.layoutManager = LinearLayoutManager(this)
         // todo why are we passing musicArray with RecyclerAdapter ?
         myrecycler.adapter = RecyclerAdapter(musicArray).apply {
